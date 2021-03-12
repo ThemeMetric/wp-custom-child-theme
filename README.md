@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://shweb.me">
-    <img alt="SHWeb" src="https://shweb.me/wp-content/uploads/2021/03/logo.png" width="50" />
+    <img alt="SHWeb" src="https://avatars.githubusercontent.com/u/7734490?s=460&u=2c8e25a74fe39d847a0199b7a19b0fbe3a477763&v=4"/>
   </a>
 </p>
 
@@ -114,3 +114,11 @@ function my_theme_enqueue_styles() {
 }
 
 ```
+
+4.  **Install child theme**
+
+Install the child theme as you install any other theme. You can copy the folder to the site using FTP, or create a zip file of the child theme folder, choosing the option to maintain folder structure, and click on Appearance > Themes > Add New to upload the zip file.
+
+5.  **Activate child theme**
+
+Your child theme is now ready for activation. Log in to your site’s Administration Screen, and go to Administration Screen > Appearance > Themes. You should see your child theme listed and ready for activation. (If your WordPress installation is multi-site enabled, then you may need to switch to your network Administration Screen to enable the theme (within the Network Admin Themes Screen tab). You can then switch back to your site-specific WordPress Administration Screen to activate your child theme.)
