@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://shweb.me">
-    <img alt="SHWeb" src="https://avatars.githubusercontent.com/u/7734490?s=460&u=2c8e25a74fe39d847a0199b7a19b0fbe3a477763&v=4"/>
+    <img alt="SHWeb" src="https://secure.gravatar.com/avatar/34cd6c9a0e1034626732efb787f24147?s=96&d=mm&r=g"/>
   </a>
 </p>
 
@@ -122,3 +122,32 @@ Install the child theme as you install any other theme. You can copy the folder 
 5.  **Activate child theme**
 
 Your child theme is now ready for activation. Log in to your site’s Administration Screen, and go to Administration Screen > Appearance > Themes. You should see your child theme listed and ready for activation. (If your WordPress installation is multi-site enabled, then you may need to switch to your network Administration Screen to enable the theme (within the Network Admin Themes Screen tab). You can then switch back to your site-specific WordPress Administration Screen to activate your child theme.)
+
+### Adding Template Files
+
+Other than the functions.php file (as noted above), any file you add to your child theme will overwrite the same file in the parent theme.
+
+In most cases, it’s best to create a copy of the template files you want to change from the parent theme, then make your modifications to the copied files, leaving the parent files unchanged. For example, if you wanted to change the code of the parent theme’s header.php file, you would copy the file to your child theme folder and customize it there.
+
+You can also include files in the child theme that are not included in the parent theme. For instance, you might want to create a more specific template than is found in your parent theme, such as a template for a specific page or category archive (e.g. page-3.php would load for a Page with the ID of 3).
+
+See the Template Hierarchy page for more information about how WordPress determines which template to use.
+
+### Using functions.php
+
+Unlike style.css, the functions.php of a child theme does not override its counterpart from the parent. Instead, it is loaded in addition to the parent’s functions.php. (Specifically, it is loaded right before the parent’s file.)
+
+In that way, the functions.php of a child theme provides a smart, trouble-free method of modifying the functionality of a parent theme. Say that you want to add a PHP function to your theme. The fastest way would be to open its functions.php file and put the function there. But that’s not smart: The next time your theme is updated, your function will disappear. But there is an alternative way which is the smart way: you can create a child theme, add a functions.php file in it, and add your function to that file. The function will do the exact same job from there too, with the advantage that it will not be affected by future updates of the parent theme. Do not copy the full content of functions.php of the parent theme into functions.php in the child theme.
+
+The structure of functions.php is simple: An opening PHP tag at the top, and below it, your bits of PHP. In it you can put as many or as few functions as you wish. The example below shows an elementary functions.php file that does one simple thing: Adds a favicon link to the head element of HTML pages.
+
+```
+<?php // Opening PHP tag - nothing should be before this, not even whitespace
+
+// Custom Function to Include
+function my_favicon_link() {
+    echo <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />' . "\n";
+}
+add_action( 'wp_head', 'my_favicon_link' );
+
+```
